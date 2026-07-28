@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+
+}
+
+header{
+  width: 100vw;
+  height: 5rem;
+  background-color: rgba(88, 122, 233, 0.5);
+  position: fixed;
+  padding: 1em;
+  z-index: 1111;
+}
+
+header nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+header nav input{
+  width: 40rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 1.5rem;
+ /* background-image: url('./assets/navbarIcons/search.png'); */
+  background-position: right;
+  background-size: 1rem;
+  background-repeat: no-repeat;
+  
+}
