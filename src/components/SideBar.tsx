@@ -2,7 +2,7 @@
 
 export const SideBar = () => {
   return (
-    <div>
+    <div className="side-bar">
         
     </div>
   )

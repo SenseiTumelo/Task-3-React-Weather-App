@@ -12,7 +12,9 @@
     "wdth" 100;
 
 }
-
+body{
+  background: linear-gradient(60deg, #008DD5, #22577a, #C7F9CC);
+}
 header{
   width: 100vw;
   height: 5rem;
@@ -40,4 +42,50 @@ header nav input{
   background-size: 1rem;
   background-repeat: no-repeat;
   
+}
+
+.side-bar{
+  position: fixed;
+  left: 0;
+  top: 40%;
+  width: 5rem;
+  height: 15rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  background-color: #f9f9f9;
+  z-index: 1111;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+/*================================================================*/
+/*                  My hero section                               */
+/*================================================================*/
+.hero-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.card-wrapper{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0.5rem;
+  grid-auto-rows: minmax(100px, auto);
+  width: 80vw;
+  min-height: 80vh;
+}
+
+.card{
+  /*border: 2px solid #f4f7fa5b;*/
+  border-radius: 0.5rem;
+  background-color: #c2e2f742;
+  padding: 1em;
+  color: #fff;
+  box-shadow: rgba(232, 238, 243, 0.2) 0px 8px 24px;
+}
+
+.card-1{
+  grid-row: 1;
+  grid-column: 1/3;
+ 
 }
