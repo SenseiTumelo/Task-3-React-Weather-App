@@ -1,7 +1,7 @@
 import type React from "react";
 
 type btnProp = {
-    style: React.CSSProperties,
+    style?: React.CSSProperties,
     children: React.ReactNode
 }
 
