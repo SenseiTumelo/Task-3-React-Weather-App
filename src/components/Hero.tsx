@@ -19,11 +19,11 @@ const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>)=>{
       e.preventDefault(); 
       await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`)
       .then(res=>res.json())
-      .then(data=>{ console.log(data); setData(data); localStorage.setItem("weater-details",data.city.name)});
+      .then(data=>{ console.log(data); setData(data); localStorage.setItem("weater-details",JSON.stringify(data.city.name))});
   
 } 
 
-const getData = localStorage.getItem("weather-details");
+const getData = [localStorage.getItem("weather-details")];
 /*if(!data){
   return <div>Loading...</div>
 }*/
