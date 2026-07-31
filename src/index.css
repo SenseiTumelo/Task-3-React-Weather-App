@@ -13,10 +13,12 @@
 
 }
 body{
-  background: #008DD5;
-  background: #008DD5;
-  background: #008DD5;
-  background: linear-gradient(330deg, rgba(0, 141, 213, 1) 0%, rgba(250, 240, 225, 1) 100%);
+
+ /*  background: linear-gradient(330deg, rgba(0, 141, 213, 1) 0%, rgba(250, 240, 225, 1) 100%);*/
+  background-image: url('./assets/bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 header{
   width: 100vw;
@@ -94,12 +96,12 @@ button{
   grid-column: 1;
  
 }
-.card-1 input{
+.card-2 input{
     width: 10rem;
-    height: 1rem;
+    height: 2rem;
     border-radius: 2rem;
     border: none;
-    padding: 1.5rem;
+    padding: 1rem;
   /* background-image: url('./assets/navbarIcons/search.png'); */
     background-position: right;
     background-size: 1rem;
