@@ -98,3 +98,17 @@ header nav h2{
   margin-top: 1.5rem;
 }
 
+.weather-details h3{
+  color: #fff;
+  font-size: 5rem;
+}
+.more-weather-details{
+  display: flex;
+  gap: 0.5rem;
+  color: #fff;
+}
+
+.weather-icon img{
+  width: 10rem;
+  height: 10rem;
+}
