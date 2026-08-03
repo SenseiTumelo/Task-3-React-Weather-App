@@ -10,9 +10,9 @@ return (
     <header>
         <nav>
             <Text variant='h2'>Weather App</Text>
-            <div className="theme-container">
-                    <Button ><img src={lightMode} alt="" /></Button>
-                    <Button ><img src={darkMode} alt="" /></Button>
+            <div className="theme-container ">
+                    <Button ><img src={lightMode} alt="" className="icons"/></Button>
+                    <Button ><img src={darkMode} alt="" className="icons" /></Button>
             </div>
             <div className="deg-to-Fer">
                 <Button>Deg</Button>

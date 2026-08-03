@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Text } from "./Text";
 import { Button } from "./ButtonComponent/Button";
+import descIcon from "../assets/description.png";
+import hunidityIcon from "../assets/humidity.png";
+import feelslikeIcon from "../assets/wind.png";
 
 interface WeatherData {
   main: {
@@ -90,19 +93,24 @@ export const Hero = () => {
             <Text variant="h1">{Math.round(weather.main.temp)}°C</Text>
             <Text variant="h3">{weather.name}</Text>
             <div className="more-weather-details">
-              <Button style={{ color: '#fff' }}>
+              <Button style={{ color: '#fff' }} >
+                <img src={feelslikeIcon} className="icons" alt="" />
                 <strong>Feels like: </strong>{Math.round(weather.main.feels_like)}°C
               </Button>
               <Button style={{ color: '#fff' }}>
-                Humidity: {weather.main.humidity}%
+                <img src={hunidityIcon} className="icons" alt="" />
+                <strong> Humidity: </strong>{weather.main.humidity}%
               </Button>
               <Button style={{ color: '#fff' }}>
-                Description: {weather.weather[0].description}
+                <img src={descIcon} className="icons" alt="" />
+                <strong>Description: </strong>{weather.weather[0].description}
               </Button>
             </div>
+            
           </div>
         )}
       </div>
+
     </main>
   );
 };
