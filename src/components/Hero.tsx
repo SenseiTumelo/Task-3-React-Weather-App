@@ -114,24 +114,24 @@ export const Hero = () => {
           )}
         </div>
         </div>
-        <Text variant="h2">Hourly:</Text>
+        <Text variant="h1" style={{color:'#fff', placeSelf:"center",marginBottom:'1.5rem'}}>Daily Weather </Text>
          <div className="hourly-section">
         
         <div className="hourly-card">
-          <Card style={{width: '20rem', height:'20rem'}} >
-            <Text variant="h3">Monday</Text>
+          <Card style={{width: '15rem', height:'5rem'}} >
+            <Text variant="h3" style={{padding:'1rem', color:'#fff'}}>Mon</Text>
           </Card>
-          <Card style={{width: '20rem', height:'20rem'}} >
-            <Text variant="h3">Tuesday</Text>
+          <Card style={{width: '15rem', height:'5rem'}} >
+            <Text variant="h3" style={{padding:'1rem', color:'#fff'}}>Tue</Text>
           </Card>
-          <Card style={{width: '20rem', height:'20rem'}} >
-            <Text variant="h3">Wednesday</Text>
+          <Card style={{width: '15rem', height:'5rem'}} >
+            <Text variant="h3" style={{padding:'1rem', color:'#fff'}}>Wed</Text>
           </Card>
-          <Card style={{width: '20rem', height:'20rem'}} >
-              <Text variant="h3">Thursday</Text>
+          <Card style={{width: '15rem', height:'5rem'}} >
+              <Text variant="h3" style={{padding:'1rem', color:'#fff'}}>Thur</Text>
           </Card>
-            <Card style={{width: '20rem', height:'20rem'}} >
-            <Text variant="h3">Friday</Text>
+            <Card style={{width: '15rem', height:'5rem'}} >
+            <Text variant="h3" style={{padding:'1rem', color:'#fff'}}>Fri</Text>
           </Card>
         </div>
        
