@@ -125,6 +125,9 @@ header nav h2{
   color: var(--primary-text-color)
 }
 
+.weather-icon{
+  display: flex;
+}
 .weather-icon img{
   width: 10rem;
   height: 10rem;
