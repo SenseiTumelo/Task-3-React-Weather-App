@@ -76,7 +76,7 @@ export const Hero = () => {
               placeholder="Search for location"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCity(e.target.value)}
             />
-            <Button style={{ color: "#fff", marginLeft: "0.5rem", width: "5rem", height: "2.5rem" }}>
+            <Button className="searchBtn"style={{ color: "#fff", marginLeft: "0.5rem", width: "5rem", height: "2.5rem" }}>
               Search
             </Button>
           </form>
@@ -94,7 +94,7 @@ export const Hero = () => {
             </div>
 
               <Text variant="h1">{Math.round(weather.main.temp)}°C</Text>
-              <Text variant="h3">{weather.name}</Text>
+              <Text  variant="h3">{weather.name}</Text>
               <div className="more-weather-details">
                 <Button style={{ color: '#fff' }} >
                   <img src={feelslikeIcon} className="icons" alt="" />
@@ -118,19 +118,19 @@ export const Hero = () => {
          <div className="hourly-section">
         
         <div className="hourly-card">
-          <Card style={{width: '15rem', height:'5rem'}} >
-            <Text variant="h3" style={{padding:'1rem', color:'#fff'}}>Mon</Text>
+          <Card style={{width: '15rem', height:'5rem'}}  className="daily-weather-card">
+            <Text variant="h3" style={{padding:'1rem', color:'#fff'}} >Mon</Text>
           </Card>
-          <Card style={{width: '15rem', height:'5rem'}} >
-            <Text variant="h3" style={{padding:'1rem', color:'#fff'}}>Tue</Text>
+          <Card style={{width: '15rem', height:'5rem'}} className="daily-weather-card">
+            <Text variant="h3" style={{padding:'1rem', color:'#fff'}} >Tue</Text>
           </Card>
-          <Card style={{width: '15rem', height:'5rem'}} >
+          <Card style={{width: '15rem', height:'5rem'}} className="daily-weather-card">
             <Text variant="h3" style={{padding:'1rem', color:'#fff'}}>Wed</Text>
           </Card>
-          <Card style={{width: '15rem', height:'5rem'}} >
+          <Card style={{width: '15rem', height:'5rem'}} className="daily-weather-card">
               <Text variant="h3" style={{padding:'1rem', color:'#fff'}}>Thur</Text>
           </Card>
-            <Card style={{width: '15rem', height:'5rem'}} >
+            <Card style={{width: '15rem', height:'5rem'}} className="daily-weather-card">
             <Text variant="h3" style={{padding:'1rem', color:'#fff'}}>Fri</Text>
           </Card>
         </div>

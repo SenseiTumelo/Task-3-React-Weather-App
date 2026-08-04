@@ -3,7 +3,8 @@ import './Card.css'
 
 type cardProps={
     children: React.ReactNode,
-    style?: React.CSSProperties
+    style?: React.CSSProperties,
+    className?: string
 }
 
 export const Card: React.FC<cardProps> = ({children, style}) => {
