@@ -1,20 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+
+/*==================================================================
+                             light mode
+====================================================================*/
+:root{
+
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:"wdth" 100;
+
+  --primary-text-color: #fff;
+  --primary-bg-color: linear-gradient(330deg, rgba(0, 141, 213, 1) 0%, rgba(250, 240, 225, 1) 100%); 
+  --page-bg-color: linear-gradient(330deg, rgba(0, 141, 213, 1) 0%, rgba(250, 240, 225, 1) 100%);
+  --button-hover-border-color: #000;
+}
+
+/*==================================================================
+                             Dark mode
+====================================================================*/
+.darkmode{
+  --primary-text-color: #fff;
+  --primary-bg-color: radial-gradient(circle, hsla(0, 0%, 0%, 1) 0%, hsla(231, 85%, 18%, 1) 100%);
+  --page-bg-color: radial-gradient(circle, hsla(0, 0%, 0%, 1) 0%, hsla(231, 85%, 18%, 1) 100%);
+  --button-hover-border-color: #000;
+
+}
+/*==================================================================
+                             
+====================================================================*/
+
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-
 }
+
+
 body{
 
- background: linear-gradient(330deg, rgba(0, 141, 213, 1) 0%, rgba(250, 240, 225, 1) 100%);
+ background: var(--page-bg-color);
 
 }
 header{
@@ -66,7 +92,7 @@ header nav h2{
   display: flex;
   justify-content: center;
   width: 100vw;
-  min-height: 80vh;
+  min-height: 100vh;
   
 }
 .location-details{
@@ -81,7 +107,7 @@ header nav h2{
 }
 
 .location-details input{
-  width: 40rem;
+  width: 30rem;
   height: 2.5rem;
   border-radius: 1.5rem;
   border: none;
@@ -103,10 +129,18 @@ header nav h2{
 .more-weather-details{
   display: flex;
   gap: 0.5rem;
-  color: #fff;
+  color: var(--primary-text-color)
 }
 
 .weather-icon img{
   width: 10rem;
   height: 10rem;
+}
+
+/*================================================================*/
+/*                  Media queries                                 */
+/*================================================================*/
+
+@media screen and (max-width: 320px) {
+  
 }

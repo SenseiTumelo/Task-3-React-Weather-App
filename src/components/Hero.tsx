@@ -4,6 +4,8 @@ import { Button } from "./ButtonComponent/Button";
 import descIcon from "../assets/description.png";
 import hunidityIcon from "../assets/humidity.png";
 import feelslikeIcon from "../assets/wind.png";
+import { Card } from "./CardComponent/Card";
+
 
 interface WeatherData {
   main: {
@@ -62,53 +64,58 @@ export const Hero = () => {
   };
 
   return (
-    <main className="hero-section">
-      <div className="location-details">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            id="city"
-            value={city}
-            name="city"
-            placeholder="Search for location"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCity(e.target.value)}
-          />
-          <Button style={{ color: "#fff", marginLeft: "0.5rem", width: "5rem", height: "2.5rem" }}>
-            Search
-          </Button>
-        </form>
-
-        {loading && <p>Loading data...</p>}
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-
-        {weather && (
-          <div className="weather-details">
-          <div className="weather-icon">
-            <img
-              src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-              alt={weather.weather[0].description}
+    <main >
+      <div className="hero-section">      
+        <div className="location-details">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              id="city"
+              value={city}
+              name="city"
+              placeholder="Search for location"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCity(e.target.value)}
             />
-          </div>
+            <Button style={{ color: "#fff", marginLeft: "0.5rem", width: "5rem", height: "2.5rem" }}>
+              Search
+            </Button>
+          </form>
 
-            <Text variant="h1">{Math.round(weather.main.temp)}°C</Text>
-            <Text variant="h3">{weather.name}</Text>
-            <div className="more-weather-details">
-              <Button style={{ color: '#fff' }} >
-                <img src={feelslikeIcon} className="icons" alt="" />
-                <strong>Feels like: </strong>{Math.round(weather.main.feels_like)}°C
-              </Button>
-              <Button style={{ color: '#fff' }}>
-                <img src={hunidityIcon} className="icons" alt="" />
-                <strong> Humidity: </strong>{weather.main.humidity}%
-              </Button>
-              <Button style={{ color: '#fff' }}>
-                <img src={descIcon} className="icons" alt="" />
-                <strong>Description: </strong>{weather.weather[0].description}
-              </Button>
+          {loading && <p>Loading data...</p>}
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+
+          {weather && (
+            <div className="weather-details">
+            <div className="weather-icon">
+              <img
+                src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                alt={weather.weather[0].description}
+              />
             </div>
-            
-          </div>
-        )}
+
+              <Text variant="h1">{Math.round(weather.main.temp)}°C</Text>
+              <Text variant="h3">{weather.name}</Text>
+              <div className="more-weather-details">
+                <Button style={{ color: '#fff' }} >
+                  <img src={feelslikeIcon} className="icons" alt="" />
+                  <strong>Feels like: </strong>{Math.round(weather.main.feels_like)}°C
+                </Button>
+                <Button style={{ color: '#fff' }}>
+                  <img src={hunidityIcon} className="icons" alt="" />
+                  <strong> Humidity: </strong>{weather.main.humidity}%
+                </Button>
+                <Button style={{ color: '#fff' }}>
+                  <img src={descIcon} className="icons" alt="" />
+                  <strong>Description: </strong>{weather.weather[0].description}
+                </Button>
+              </div>
+              
+            </div>
+          )}
+        </div>
+        </div>
+      <div className="hourly-section">
+        <Card ><Text variant="h3">Monday</Text></Card>
       </div>
 
     </main>
