@@ -1,7 +1,5 @@
 
 import {Button} from "./ButtonComponent/Button"
-import lightMode from "../assets/navbarIcons/light-mode.png"
-import darkMode from "../assets/navbarIcons/night-mode.png"
 import {Text} from "../components/Text"
 import { useEffect, useState } from "react";
 import {DarkmodeToggle} from "./DarkMode/DarkmodeToggle"

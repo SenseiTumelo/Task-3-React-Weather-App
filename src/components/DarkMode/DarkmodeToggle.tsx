@@ -1,6 +1,7 @@
 import type React from "react";
 import "./DarkmodeToggle.css";
 
+
 type Props = {
   isDarkMode: boolean;
   setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;

@@ -114,8 +114,27 @@ export const Hero = () => {
           )}
         </div>
         </div>
-      <div className="hourly-section">
-        <Card ><Text variant="h3">Monday</Text></Card>
+        <Text variant="h2">Hourly:</Text>
+         <div className="hourly-section">
+        
+        <div className="hourly-card">
+          <Card style={{width: '20rem', height:'20rem'}} >
+            <Text variant="h3">Monday</Text>
+          </Card>
+          <Card style={{width: '20rem', height:'20rem'}} >
+            <Text variant="h3">Tuesday</Text>
+          </Card>
+          <Card style={{width: '20rem', height:'20rem'}} >
+            <Text variant="h3">Wednesday</Text>
+          </Card>
+          <Card style={{width: '20rem', height:'20rem'}} >
+              <Text variant="h3">Thursday</Text>
+          </Card>
+            <Card style={{width: '20rem', height:'20rem'}} >
+            <Text variant="h3">Friday</Text>
+          </Card>
+        </div>
+       
       </div>
 
     </main>

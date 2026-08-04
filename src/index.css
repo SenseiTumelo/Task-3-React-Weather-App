@@ -74,13 +74,7 @@ header nav h2{
   padding-left: 0.5rem;
 }
 
-.theme-container Button{
-    margin-left: 0.5rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 3rem;
-   
-}
+
 
 .icons{
   width: 1rem;
@@ -92,7 +86,8 @@ header nav h2{
   display: flex;
   justify-content: center;
   width: 100vw;
-  min-height: 100vh;
+  min-height: 70vh;
+  margin-top: 1.5rem;
   
 }
 .location-details{
@@ -137,6 +132,20 @@ header nav h2{
   height: 10rem;
 }
 
+
+.hourly-section{
+  width: 100vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+ 
+
+}
+
+.hourly-card{
+  display: flex;
+  gap: 2rem;
+}
 /*================================================================*/
 /*                  Media queries                                 */
 /*================================================================*/
