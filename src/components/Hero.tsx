@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Text } from "./Text";
 import { Button } from "./ButtonComponent/Button";
 import descIcon from "../assets/description.png";
 import humidityIcon from "../assets/humidity.png";
 import feelslikeIcon from "../assets/wind.png";
 import { Card } from "./CardComponent/Card";
+import toast, {Toaster} from 'react-hot-toast'
 
 interface WeatherData {
   main: {
@@ -39,6 +40,7 @@ export const Hero = () => {
   const [forecast, setForecast] = useState<HourlyItem[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const notify = ()=>toast('Search completed');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -92,12 +94,21 @@ export const Hero = () => {
     const date = new Date(timeString);
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
+    const [isDarkmode, setIsDarkmode] = useState(localStorage.getItem('isDarkMode') === 'true');
 
+    useEffect(() =>{
+        document.body.classList.toggle('darkmode', isDarkmode);
+    }, [isDarkmode]);
+    
   return (
     <main className="hero-container">
-      <div className="hero-section">      
-        <div className="location-details">
-          <form className="search-form" onSubmit={handleSubmit}>
+      <div className="hero-section">  
+        <div className="side-nav">
+          <Text variant="h2">Weather Today</Text>
+        </div>    
+      <div className="location-details">
+
+      <form className="search-form" onSubmit={handleSubmit}>
             <input
               type="text"
               id="city"
@@ -106,13 +117,14 @@ export const Hero = () => {
               placeholder="Search for location"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCity(e.target.value)}
             />
-            <Button style={{ color: "#fff", width: "5rem", height: "2.5rem" }}>
+            <Button style={{ color: "#000", width: "5rem", height: "3rem" }}>
               Search
             </Button>
-          </form>
+      </form>
+          
 
           {loading && <p>Loading data...</p>}
-          {error && <p style={{ color: 'red' }}>{error}</p>}
+          {error && <p style={{ color: 'red' }}> {error}</p>}
 
           {weather && (
             <div className="weather-details">
@@ -123,7 +135,7 @@ export const Hero = () => {
                 />
               </div>
 
-              <Text variant="h1">{Math.round(weather.main.temp)}°C</Text>
+              <Text variant="2">{Math.round(weather.main.temp)}°C</Text>
               <Text variant="h3">{weather.name}</Text>
               
               <div className="more-weather-details">
