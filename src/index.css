@@ -156,7 +156,7 @@ header nav h2{
 
 .hourly-section {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   overflow-x: auto;
   padding: 1rem 0;
   width: 100%;
@@ -164,6 +164,7 @@ header nav h2{
 
 .hourly-card {
   flex: 0 0 auto;
+  width: 10rem;
 }
 /*================================================================*/
 /*                  Media queries                                 */

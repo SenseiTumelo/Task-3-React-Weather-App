@@ -67,14 +67,14 @@ export const Hero = () => {
       const dataCurrent: WeatherData = await resCurrent.json();
       setWeather(dataCurrent);
 
-      // 2. Fetch 5-day / 3-hour forecast for hourly display
+      
       const resForecast = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}`
       );
 
       if (resForecast.ok) {
         const dataForecast = await resForecast.json();
-        // Grab the first 8 intervals (24 hours)
+       
         setForecast(dataForecast.list.slice(0, 8));
       }
     } catch (err: unknown) {
