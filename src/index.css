@@ -74,7 +74,6 @@ header nav h2{
 
 
 .side-nav{
-
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
@@ -85,6 +84,9 @@ header nav h2{
     z-index: 1111;
     width: 15vw;
     height: 90vh;
+    position: absolute;
+    left: 3rem;
+    top: 1.5rem;
 }
 
 
@@ -98,10 +100,10 @@ header nav h2{
   display: flex;
   justify-content: center;
   width: 100vw;
-  min-height: 70vh;
+  min-height: 90vh;
   margin-top: 1.5rem;
-  gap:1.5rem;
-  
+  position: absolute;
+  left: 8rem;
 }
 
 
@@ -145,9 +147,9 @@ header nav h2{
   background: url('./assets/heroBG.png');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover0;
   width: 97%;
-  height: 28rem;
+  height: 300px;
   margin-top: 1.5rem;
   border-radius: 0.8rem;
   padding: 3rem;
@@ -170,7 +172,6 @@ header nav h2{
   width: 10rem;
   height: 10rem;
 }
-
 
 .hourly-section{
   width: 100vw;

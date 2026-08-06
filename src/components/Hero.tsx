@@ -102,10 +102,7 @@ export const Hero = () => {
 
   return (
     <main className="hero-container">
-      <div className="hero-section">  
-        <div className="side-nav">
-          <Text variant="h2">Weather Today</Text>
-        </div>    
+      <div className="hero-section">   
       <div className="location-details">
 
       <form className="search-form " onSubmit={handleSubmit}>
@@ -156,7 +153,7 @@ export const Hero = () => {
         </div>
       </div>
 
-      {forecast.length > 0 && (
+      {/*forecast.length > 0 && (
         <>
           <Text variant="h1" style={{ color: '#fff', textAlign: 'center', margin: '2rem 0 1rem' }}>
             Hourly Weather
@@ -180,7 +177,7 @@ export const Hero = () => {
             ))}
           </div>
         </>
-      )}
+      )*/}
     </main>
   );
 };
