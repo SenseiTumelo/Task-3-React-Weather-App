@@ -5,7 +5,8 @@ import descIcon from "../assets/description.png";
 import humidityIcon from "../assets/humidity.png";
 import feelslikeIcon from "../assets/wind.png";
 import { Card } from "./CardComponent/Card";
-import toast, {Toaster} from 'react-hot-toast'
+import { DarkmodeToggle } from "./DarkMode/DarkmodeToggle";
+
 
 interface WeatherData {
   main: {
@@ -40,7 +41,6 @@ export const Hero = () => {
   const [forecast, setForecast] = useState<HourlyItem[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const notify = ()=>toast('Search completed');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -120,6 +120,7 @@ export const Hero = () => {
             <Button style={{ color: "#000", width: "5rem", height: "3rem" }}>
               Search
             </Button>
+            <DarkmodeToggle isDarkMode={isDarkmode} setIsDarkMode={setIsDarkmode}/>
       </form>
           
 
@@ -154,18 +155,15 @@ export const Hero = () => {
               </div>
             </div>
           )}
-        </div>
-      </div>
-
-      {forecast.length > 0 && (
+                {forecast.length > 0 && (
         <>
+        <div className="hourly-forecast-card">
           <Text variant="h1" style={{ color: '#fff', textAlign: 'center', margin: '2rem 0 1rem' }}>
             Hourly Weather
           </Text>
           <div className="hourly-section">
             {forecast.map((item) => (
               <div className="hourly-card" key={item.dt}>
-                <Card style={{ width: '8rem', padding: '0.75rem', textAlign: 'center' }}>
                   <Text variant="h3" style={{ color: '#fff', fontSize: '0.9rem' }}>
                     {formatTime(item.dt_txt)}
                   </Text>
@@ -176,12 +174,22 @@ export const Hero = () => {
                   <Text variant="h3" style={{ color: '#fff', fontWeight: 'bold' }}>
                     {Math.round(item.main.temp)}°C
                   </Text>
-                </Card>
+             
               </div>
             ))}
           </div>
+
+          </div>
+          <div className="details-card">
+            <Text>Detail card</Text>
+          </div>
         </>
       )}
+        </div>
+        
+      </div>
+
+
     </main>
   );
 };

@@ -143,8 +143,11 @@ header nav h2{
 
 .weather-details{
   background: url('./assets/heroBG.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 97%;
-  height: 28rem;
+  height: 20rem;
   margin-top: 1.5rem;
   border-radius: 0.8rem;
   padding: 1.5rem;
@@ -168,19 +171,30 @@ header nav h2{
   height: 10rem;
 }
 
-
+.hourly-forecast-card{
+  width: 30rem;
+  height: 13rem;
+    background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.8rem;
+}
 .hourly-section{
   width: 100vw;
   height: 40vh;
   display: flex;
   justify-content: center;
+  overflow-x: scroll;
  
-
 }
 
 .hourly-card{
   display: flex;
-  gap: 2rem;
+  height: 5rem;
+  width: 3rem;
+  
 }
 
 .daily-weather-card{
@@ -200,6 +214,17 @@ header nav h2{
 .hourly-card {
   flex: 0 0 auto;
   width: 10rem;
+}
+
+.details-card{
+    width: 30rem;
+  height: 13rem;
+    background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.8rem;
 }
 /*================================================================*/
 /*                  Media queries                                 */
