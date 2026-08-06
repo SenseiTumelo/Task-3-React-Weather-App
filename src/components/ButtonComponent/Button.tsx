@@ -1,6 +1,6 @@
 import type React from "react";
 import styles from "./Button.module.css"
-import type { DetailedReactHTMLElement, HtmlHTMLAttributes } from "react";
+
 
 type btnProp = {
     style?: React.CSSProperties,

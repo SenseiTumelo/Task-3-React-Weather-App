@@ -143,11 +143,14 @@ header nav h2{
 
 .weather-details{
   background: url('./assets/heroBG.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 97%;
   height: 28rem;
   margin-top: 1.5rem;
   border-radius: 0.8rem;
-  padding: 1.5rem;
+  padding: 3rem;
 }
 
 .weather-details h3{

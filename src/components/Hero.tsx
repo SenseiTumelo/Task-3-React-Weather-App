@@ -5,7 +5,7 @@ import descIcon from "../assets/description.png";
 import humidityIcon from "../assets/humidity.png";
 import feelslikeIcon from "../assets/wind.png";
 import { Card } from "./CardComponent/Card";
-import toast, {Toaster} from 'react-hot-toast'
+
 
 interface WeatherData {
   main: {
@@ -40,7 +40,7 @@ export const Hero = () => {
   const [forecast, setForecast] = useState<HourlyItem[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const notify = ()=>toast('Search completed');
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -99,7 +99,7 @@ export const Hero = () => {
     useEffect(() =>{
         document.body.classList.toggle('darkmode', isDarkmode);
     }, [isDarkmode]);
-    
+
   return (
     <main className="hero-container">
       <div className="hero-section">  
@@ -108,7 +108,7 @@ export const Hero = () => {
         </div>    
       <div className="location-details">
 
-      <form className="search-form" onSubmit={handleSubmit}>
+      <form className="search-form " onSubmit={handleSubmit}>
             <input
               type="text"
               id="city"
@@ -128,16 +128,14 @@ export const Hero = () => {
 
           {weather && (
             <div className="weather-details">
+              <Text variant="h2" style={{color: '#fff'}}>{weather.name}</Text>
               <div className="weather-icon">
+              <Text variant="h1">{Math.round(weather.main.temp)}°C</Text>
                 <img
                   src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
                   alt={weather.weather[0].description}
                 />
               </div>
-
-              <Text variant="2">{Math.round(weather.main.temp)}°C</Text>
-              <Text variant="h3">{weather.name}</Text>
-              
               <div className="more-weather-details">
                 <Button style={{ color: '#fff' }}>
                   <img src={feelslikeIcon} className="icons" alt="" />
@@ -153,6 +151,7 @@ export const Hero = () => {
                 </Button>
               </div>
             </div>
+            
           )}
         </div>
       </div>
