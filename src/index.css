@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 
 /*==================================================================
@@ -6,10 +6,9 @@
 ====================================================================*/
 :root{
 
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings:"wdth" 100;
 
   --primary-text-color: #000;
   --primary-bg-color: #fff; 
@@ -97,10 +96,14 @@ header nav h2{
 .navigator{
   text-decoration: none;
   color: #000;
-  background-color:  rgba(255, 255, 255, 0.3);
+  background-color:  rgba(248, 247, 247, 0.5);
   margin: 1.5rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap:1rem;
+  font-size: 24px;
 }
 
 .icons{
@@ -177,7 +180,12 @@ header nav h2{
   gap: 0.5rem;
   color: var(--primary-text-color)
 }
-
+.details-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
 .weather-icon{
   display: flex;
 }
@@ -186,12 +194,14 @@ header nav h2{
   height: 10rem;
 }
 
+.hourly-forecast-card{
+  height: 1rem;
+}
+
 .hourly-section{
   width: 100vw;
-  height: 40vh;
+  height: 15rem;
   display: flex;
-  justify-content: center;
- 
 
 }
 
@@ -218,45 +228,38 @@ header nav h2{
   flex: 0 0 auto;
   width: 10rem;
 }
+.detailed-weather-cards{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.details-card{
+  width:50%;
+  height:40vh;
+  border: 1px rgb(228, 227, 227) solid;
+  border-radius: 0.5rem;
+  padding: 1.5rem
+}
 /*================================================================*/
 /*                  Media queries                                 */
 /*================================================================*/
 
 @media screen and (max-width: 320px) {
 
-    .location-details h1{
-      font-size: 5rem;
-    }
-    .searchBtn{
-      display: none;
-    }
+}
 
 .location-details input{
-      width: 10rem;
-    }
 
-    .weather-details h3{
-      font-size: 2rem;
-    }
 }
 
 @media screen and (max-width: 480px){
-    .hourly-card{
-      gap: 0.5rem;
-      flex-direction: column;
-    }
-    
-    .location-details input{
-      width: 15rem;
-    }
+
 }
 
 @media screen and (max-width: 768px){
-    .hourly-card{
-      gap: 0.5rem;
-      flex-direction: column;
-    }
-    .daily-weather-card{
-      width: 20rem;
-    }
+
 }

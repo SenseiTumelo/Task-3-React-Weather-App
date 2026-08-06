@@ -134,7 +134,7 @@ export const Hero = () => {
                 />
               </div>
               <div className="more-weather-details">
-                <Button style={{ color: '#fff' }}>
+                <Button  className="details-btn">
                   <img src={feelslikeIcon} className="icons" alt="" />
                   <strong>Feels like: </strong>{Math.round(weather.main.feels_like)}°C
                 </Button>
@@ -147,37 +147,40 @@ export const Hero = () => {
                   <strong>Description: </strong>{weather.weather[0].description}
                 </Button>
               </div>
+              <div className="detailed-weather-cards">
+                <div className="details-card"  >Card1</div>
+                <div className="details-card" >Card1</div>
+                
+              </div>
+              {/*forecast.length > 0 && (
+                <div className="hourly-forecast-card">
+                  <Text variant="h2" style={{ color: '#000', textAlign: 'center', margin: '2rem 0 1rem' }}>
+                      Hourly Weather
+                    </Text>
+                    <div className="hourly-section">
+                      {forecast.map((item) => (
+                        <div className="hourly-card" key={item.dt}>
+                          <Card style={{ width: '8rem', padding: '0.75rem', textAlign: 'center' }}>
+                            <Text variant="h3" style={{ color: '#fff', fontSize: '0.9rem' }}>
+                              {formatTime(item.dt_txt)}
+                            </Text>
+                            <img
+                              src={`https://openweathermap.org/img/wn/${item.weather[0].icon}.png`}
+                              alt={item.weather[0].description}
+                            />
+                            <Text variant="h3" style={{ color: '#fff', fontWeight: 'bold' }}>
+                              {Math.round(item.main.temp)}°C
+                            </Text>
+                          </Card>
+                        </div>
+                     ))}
+                  </div>
+                </div>    
+              )*/}
             </div>
-            
           )}
         </div>
       </div>
-
-      {/*forecast.length > 0 && (
-        <>
-          <Text variant="h1" style={{ color: '#fff', textAlign: 'center', margin: '2rem 0 1rem' }}>
-            Hourly Weather
-          </Text>
-          <div className="hourly-section">
-            {forecast.map((item) => (
-              <div className="hourly-card" key={item.dt}>
-                <Card style={{ width: '8rem', padding: '0.75rem', textAlign: 'center' }}>
-                  <Text variant="h3" style={{ color: '#fff', fontSize: '0.9rem' }}>
-                    {formatTime(item.dt_txt)}
-                  </Text>
-                  <img
-                    src={`https://openweathermap.org/img/wn/${item.weather[0].icon}.png`}
-                    alt={item.weather[0].description}
-                  />
-                  <Text variant="h3" style={{ color: '#fff', fontWeight: 'bold' }}>
-                    {Math.round(item.main.temp)}°C
-                  </Text>
-                </Card>
-              </div>
-            ))}
-          </div>
-        </>
-      )*/}
     </main>
   );
 };
