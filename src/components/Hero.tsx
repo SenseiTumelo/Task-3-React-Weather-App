@@ -5,7 +5,7 @@ import descIcon from "../assets/description.png";
 import humidityIcon from "../assets/humidity.png";
 import feelslikeIcon from "../assets/wind.png";
 import { Card } from "./CardComponent/Card";
-
+import {DarkmodeToggle} from "./DarkMode/DarkmodeToggle";
 
 interface WeatherData {
   main: {
@@ -118,6 +118,7 @@ export const Hero = () => {
               Search
             </Button>
       </form>
+       <DarkmodeToggle isDarkMode={isDarkmode} setIsDarkMode={setIsDarkmode}/>
           
 
           {loading && <p>Loading data...</p>}
