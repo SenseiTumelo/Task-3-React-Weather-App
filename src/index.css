@@ -601,7 +601,6 @@ input {
       background:url("./assets/heroBG.png");
     border-radius: var(--radius-large);
      background-size: cover;
-
   background-position: center;
   gap: 20px;
 
