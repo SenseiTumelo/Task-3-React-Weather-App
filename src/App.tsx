@@ -323,15 +323,6 @@ function App() {
         
               <div className="search-area">
 
-                <div>
-                  <h2>
-                    Welcome back
-                  </h2>
-
-                  <p>
-                    Check the latest weather conditions.
-                  </p>
-                </div>
 
                 <form
                   className="search-form"
@@ -380,7 +371,7 @@ function App() {
 
               </div>
 
-             {/* FORECAST */}
+
               <ForecastSection
                 forecast={forecast}
                 temperatureUnit={temperatureUnit}
@@ -424,7 +415,7 @@ function App() {
 
               <div className="page-section__header">
                 <p className="section-label">
-                  LOCATION
+                  LOCATIONS
                 </p>
 
                 <h2>
@@ -486,7 +477,7 @@ function App() {
             </div>
           )}
 
-          {/* SETTINGS PAGE */}
+
           {activeSection === "settings" && (
             <div className="page-section">
 
@@ -499,10 +490,6 @@ function App() {
                   Weather Preferences
                 </h2>
 
-                <p>
-                  Customize how weather information
-                  is displayed.
-                </p>
               </div>
 
               <div className="settings-card">

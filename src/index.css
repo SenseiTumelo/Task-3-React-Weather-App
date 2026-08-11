@@ -600,7 +600,7 @@ input {
     minmax(300px, 0.95fr);
       background:url("./assets/heroBG.png");
     border-radius: var(--radius-large);
-  background-size: cover;
+     background-size: cover;
 
   background-position: center;
   gap: 20px;
@@ -928,7 +928,7 @@ input {
 
   border-radius: 12px;
 
-  background: var(--surface-soft);
+   background-color: #e9f3fd4f;
 
   border: 1px solid var(--border);
 }
@@ -963,7 +963,7 @@ input {
   display: block;
 
   font-size: 12px;
-
+  color: black;
   font-weight: 650;
 }
 
@@ -1203,6 +1203,7 @@ input {
   border: 1px solid var(--border);
 
   box-shadow: var(--shadow);
+    width: 20rem;
 }
 
 .settings-row {
@@ -1210,7 +1211,9 @@ input {
 
   align-items: center;
 
-  justify-content: space-between;
+  justify-content: flex-start;
+
+  flex-direction: column;
 
   gap: 20px;
 }
