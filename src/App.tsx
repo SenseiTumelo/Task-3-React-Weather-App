@@ -37,9 +37,7 @@ function App() {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  /*
-   * Load weather when application starts
-   */
+
   useEffect(() => {
     const loadInitialWeather = async () => {
       setLoading(true);
@@ -126,9 +124,7 @@ function App() {
     void loadInitialWeather();
   }, []);
 
-  /*
-   * Search city
-   */
+
   const handleSearch = async (e: FormEvent) => {
     e.preventDefault();
 
@@ -164,9 +160,7 @@ function App() {
     }
   };
 
-  /*
-   * Navigation
-   */
+
   const handleNavigation = (section: NavigationSection) => {
     setActiveSection(section);
     setSidebarOpen(false);
@@ -263,15 +257,15 @@ function App() {
 
       </aside>
 
-      {/* MAIN AREA */}
+  
       <div className="main-area">
 
-        {/* TOP BAR */}
+   
         <header className="topbar">
 
           <div className="topbar-left">
 
-            {/* HAMBURGER */}
+   
             <button
               type="button"
               className="hamburger-button"
@@ -312,21 +306,21 @@ function App() {
 
           <div className="topbar-right">
 
-            {/* DARK MODE */}
+
             <ThemeToggle />
 
           </div>
 
         </header>
 
-        {/* CONTENT */}
+
         <main className="content-area">
 
-          {/* HOME */}
+
           {activeSection === "home" && (
             <div className="home-layout">
 
-              {/* SEARCH */}
+        
               <div className="search-area">
 
                 <div>
@@ -371,7 +365,7 @@ function App() {
                 </div>
               )}
 
-              {/* CURRENT WEATHER */}
+     
               <div className="home-grid">
 
                 <WeatherCard
@@ -386,7 +380,7 @@ function App() {
 
               </div>
 
-              {/* FORECAST */}
+             {/* FORECAST */}
               <ForecastSection
                 forecast={forecast}
                 temperatureUnit={temperatureUnit}
@@ -396,7 +390,7 @@ function App() {
             </div>
           )}
 
-          {/* FORECAST PAGE */}
+    
           {activeSection === "forecast" && (
             <div className="page-section">
 
@@ -424,7 +418,7 @@ function App() {
             </div>
           )}
 
-          {/* LOCATION PAGE */}
+      
           {activeSection === "location" && (
             <div className="page-section">
 
