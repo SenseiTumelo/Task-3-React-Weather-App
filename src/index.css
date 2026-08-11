@@ -122,10 +122,10 @@ input {
 .side-nav {
   position: fixed;
 
-  top: 1.5rem;
+  top: 0;
   left: 0;
-  bottom: 1.5rem;
-  border-radius: 0.8rem;
+  bottom: 0;
+  
   width: var(--sidebar-width);
 
   display: flex;
@@ -133,9 +133,7 @@ input {
 
   padding: 28px 18px;
 
-  background: var(--surface);
-
-  border-right: 1px solid var(--border);
+  background: #6badfd36;
 
   z-index: 100;
 
@@ -306,7 +304,7 @@ input {
 
   padding: 0 38px;
 
-  background: var(--surface);
+ background-color: #6badfd36;
 
   border-bottom: 1px solid var(--border);
 
@@ -927,9 +925,9 @@ input {
 
   border-radius: 12px;
 
-   background-color: #e9f3fd4f;
+   background-color: #a1cffdd2;
 
-  border: 1px solid var(--border);
+  
 }
 
 .more-detail-icon {
