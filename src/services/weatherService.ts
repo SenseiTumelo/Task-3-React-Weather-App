@@ -106,7 +106,7 @@ export const getWeatherByCity = async (city: string): Promise<WeatherData> => {
   const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
   if (!apiKey) {
-    throw new Error('OpenWeather API key is missing.');
+    throw new Error('API key is missing.');
   }
 
   const response = await fetch(
