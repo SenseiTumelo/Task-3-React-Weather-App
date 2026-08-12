@@ -45,7 +45,7 @@ function App() {
     useState<string | null>(null);
 
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
-
+  console.log("isOffline:", isOffline);
   const weatherCacheStorageKey = "weather-cache";
 
   type CachedWeatherStorage = Record<
