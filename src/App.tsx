@@ -4,6 +4,7 @@ import WeatherCard from "./components/WeatherCard";
 import ForecastSection from "./components/ForecastSection";
 import MoreDetailsCard from "./components/MoreDetailsCard";
 
+
 import {
   getForecastByCity,
   getForecastByCoordinates,

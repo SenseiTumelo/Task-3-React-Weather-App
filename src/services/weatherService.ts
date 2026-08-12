@@ -103,7 +103,7 @@ export const convertTemperature = (value: number, unit: TemperatureUnit): number
   unit === 'metric' ? value : Math.round((value * 9) / 5 + 32);
 
 export const getWeatherByCity = async (city: string): Promise<WeatherData> => {
-  const apiKey = getApiKey();
+  const apiKey = "912533d7b0a5f9eaa2cb9be133558ccb";
 
   if (!apiKey) {
     throw new Error('OpenWeather API key is missing.');
@@ -122,7 +122,7 @@ export const getWeatherByCity = async (city: string): Promise<WeatherData> => {
 };
 
 export const getWeatherByCoordinates = async (lat: number, lon: number): Promise<WeatherData> => {
-  const apiKey = getApiKey();
+  const apiKey = "912533d7b0a5f9eaa2cb9be133558ccb";
 
   if (!apiKey) {
     throw new Error('OpenWeather API key is missing.');
