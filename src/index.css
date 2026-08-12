@@ -1,74 +1,111 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
 
 :root {
   font-family: "Inter", sans-serif;
 
   color: #111827;
-  background: #f5f7fb;
+  background: #eaf2fb;
 
-  --background: #f5f7fb;
-  --surface: #ffffff;
-  --surface-soft: #f8fafc;
-  --surface-hover: #f1f5f9;
+  /* Backgrounds */
+  --background: #eaf2fb;
+  --surface: rgba(255, 255, 255, 0.38);
+  --surface-soft: rgba(255, 255, 255, 0.28);
+  --surface-hover: rgba(255, 255, 255, 0.48);
 
+  /* Text */
   --text-primary: #111827;
   --text-secondary: #64748b;
   --text-muted: #94a3b8;
 
-  --border: #e5e7eb;
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.55);
 
-  --primary: #a0a6b3;
-  --primary-light: #eff6ff;
-  --primary-dark: #8d97b4;
+  /* Primary */
+  --primary: #7c9edb;
+  --primary-light: rgba(255, 255, 255, 0.35);
+  --primary-dark: #6384c2;
 
+  /* Layout */
   --sidebar-width: 245px;
 
+  /* Radius */
   --radius-small: 10px;
   --radius-medium: 16px;
   --radius-large: 22px;
 
+  /* Shadows */
   --shadow:
-    0 10px 30px rgba(15, 23, 42, 0.06);
+    0 12px 35px rgba(31, 56, 85, 0.12);
 
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.30);
+  --glass-bg-strong: rgba(255, 255, 255, 0.42);
+  --glass-border: rgba(255, 255, 255, 0.55);
+  --glass-blur: blur(18px);
+
+  --glass-shadow:
+    0 8px 32px rgba(31, 56, 85, 0.12);
+
+  /* Weather overlay */
   --weather-overlay:
     linear-gradient(
       135deg,
-      rgba(10, 40, 80, 0.65),
-      rgba(37, 99, 235, 0.35)
+      rgba(10, 40, 80, 0.45),
+      rgba(37, 99, 235, 0.25)
     );
 }
 
 
+/* =========================================================
+   DARK THEME
+========================================================= */
+
 html.dark-theme,
 body.dark-theme {
-  --background: #0b1220;
-  --surface: #111827;
-  --surface-soft: #172033;
-  --surface-hover: #1d293d;
+  --background: #07111f;
+
+  --surface: rgba(17, 24, 39, 0.45);
+  --surface-soft: rgba(30, 41, 59, 0.38);
+  --surface-hover: rgba(51, 65, 85, 0.48);
 
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
 
-  --border: #243047;
+  --border: rgba(255, 255, 255, 0.12);
 
-  --primary: #60a5fa;
-  --primary-light: #172554;
+  --primary: #7da7e8;
+  --primary-light: rgba(96, 165, 250, 0.18);
   --primary-dark: #93c5fd;
 
   --shadow:
-    0 10px 30px rgba(0, 0, 0, 0.25);
+    0 12px 35px rgba(0, 0, 0, 0.30);
+
+  --glass-bg: rgba(15, 23, 42, 0.45);
+  --glass-bg-strong: rgba(15, 23, 42, 0.58);
+  --glass-border: rgba(255, 255, 255, 0.12);
+
+  --glass-blur: blur(18px);
+
+  --glass-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25);
 
   --weather-overlay:
     linear-gradient(
       135deg,
-      rgba(3, 15, 30, 0.78),
-      rgba(29, 78, 216, 0.45)
+      rgba(3, 15, 30, 0.65),
+      rgba(29, 78, 216, 0.35)
     );
 }
 
 
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
 
 * {
   box-sizing: border-box;
@@ -105,19 +142,38 @@ input {
   outline: none;
 }
 
-
-
 #root {
   min-height: 100vh;
 }
 
+
+/* =========================================================
+   APPLICATION SHELL
+========================================================= */
+
 .app-shell {
   min-height: 100vh;
+
   display: flex;
-  background: var(--background);
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(96, 165, 250, 0.25),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(129, 140, 248, 0.20),
+      transparent 35%
+    ),
+    var(--background);
 }
 
 
+/* =========================================================
+   SIDEBAR
+========================================================= */
 
 .side-nav {
   position: fixed;
@@ -125,7 +181,7 @@ input {
   top: 0;
   left: 0;
   bottom: 0;
-  
+
   width: var(--sidebar-width);
 
   display: flex;
@@ -133,7 +189,14 @@ input {
 
   padding: 28px 18px;
 
-  background: #6badfd36;
+  background: var(--glass-bg);
+
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+
+  border-right: 1px solid var(--glass-border);
+
+  box-shadow: var(--glass-shadow);
 
   z-index: 100;
 
@@ -141,6 +204,9 @@ input {
     transform 0.25s ease,
     background 0.25s ease;
 }
+
+
+/* Sidebar Brand */
 
 .side-nav__brand {
   display: flex;
@@ -161,16 +227,18 @@ input {
   border-radius: 12px;
 
   background: var(--primary);
+
   color: white;
 
   font-size: 21px;
 
   box-shadow:
-    0 8px 18px rgba(37, 99, 235, 0.2);
+    0 8px 18px rgba(37, 99, 235, 0.20);
 }
 
 .side-nav__brand-title {
   font-size: 15px;
+
   font-weight: 750;
 
   color: var(--text-primary);
@@ -185,6 +253,9 @@ input {
 
   letter-spacing: 0.02em;
 }
+
+
+/* Sidebar Menu */
 
 .side-nav__menu-title {
   padding: 0 12px 12px;
@@ -207,6 +278,9 @@ input {
   gap: 6px;
 }
 
+
+/* Navigation Button */
+
 .navigator {
   width: 100%;
 
@@ -217,13 +291,14 @@ input {
 
   padding: 12px 13px;
 
-  border-radius: 10px;
+  border-radius: 12px;
 
   background: transparent;
 
   color: var(--text-secondary);
 
   font-size: 13px;
+
   font-weight: 550;
 
   text-align: left;
@@ -232,27 +307,47 @@ input {
 
   transition:
     background 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .navigator:hover {
-  background: var(--surface-soft);
+  background: rgba(255, 255, 255, 0.20);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
   color: var(--text-primary);
+
+  transform: translateX(2px);
 }
 
 .navigator.active {
-  background: var(--primary-light);
+  background: rgba(255, 255, 255, 0.32);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
   color: var(--primary);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .navigator__icon {
   width: 20px;
 
   display: flex;
+
   justify-content: center;
 
   font-size: 17px;
 }
+
+
+/* Sidebar Bottom */
 
 .sidebar-bottom {
   margin-top: auto;
@@ -264,6 +359,7 @@ input {
 
 .sidebar-status {
   display: flex;
+
   align-items: center;
 
   gap: 8px;
@@ -280,9 +376,15 @@ input {
   border-radius: 50%;
 
   background: #22c55e;
+
+  box-shadow:
+    0 0 10px rgba(34, 197, 94, 0.5);
 }
 
 
+/* =========================================================
+   MAIN AREA
+========================================================= */
 
 .main-area {
   width: calc(100% - var(--sidebar-width));
@@ -291,24 +393,48 @@ input {
 
   min-height: 100vh;
 
-  background: var(--background);
+  background:
+    radial-gradient(
+      circle at 70% 15%,
+      rgba(96, 165, 250, 0.16),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 30% 80%,
+      rgba(129, 140, 248, 0.12),
+      transparent 30%
+    ),
+    var(--background);
 }
 
+
+/* =========================================================
+   TOPBAR
+========================================================= */
 
 .topbar {
   height: 82px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
   padding: 0 38px;
 
- background-color: #6badfd36;
+  background: var(--glass-bg);
 
-  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border-bottom: 1px solid var(--glass-border);
+
+  box-shadow:
+    0 4px 20px rgba(31, 56, 85, 0.06);
 
   position: sticky;
+
   top: 0;
 
   z-index: 50;
@@ -317,6 +443,7 @@ input {
 .topbar-left,
 .topbar-right {
   display: flex;
+
   align-items: center;
 }
 
@@ -327,6 +454,9 @@ input {
 .topbar-right {
   gap: 12px;
 }
+
+
+/* Page Heading */
 
 .page-heading__eyebrow {
   margin-bottom: 4px;
@@ -349,25 +479,37 @@ input {
 }
 
 
+/* =========================================================
+   HAMBURGER
+========================================================= */
+
 .hamburger-button {
   display: none;
 
   width: 40px;
   height: 40px;
 
-  border-radius: 10px;
+  border-radius: 12px;
 
   align-items: center;
   justify-content: center;
+
   flex-direction: column;
 
   gap: 4px;
 
-  background: var(--surface-soft);
+  background: var(--glass-bg);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid var(--glass-border);
 
   color: var(--text-primary);
 
   cursor: pointer;
+
+  box-shadow: var(--glass-shadow);
 }
 
 .hamburger-button span {
@@ -379,20 +521,32 @@ input {
   background: currentColor;
 }
 
+
+/* =========================================================
+   THEME TOGGLE
+========================================================= */
+
 .theme-toggle {
   width: 42px;
   height: 42px;
 
   display: grid;
+
   place-items: center;
 
   border-radius: 50%;
 
-  background: var(--surface-soft);
+  background: var(--glass-bg);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
   color: var(--text-secondary);
 
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border);
+
+  box-shadow:
+    0 5px 18px rgba(31, 56, 85, 0.08);
 
   cursor: pointer;
 
@@ -403,7 +557,7 @@ input {
 }
 
 .theme-toggle:hover {
-  background: var(--surface-hover);
+  background: var(--glass-bg-strong);
 
   color: var(--text-primary);
 
@@ -417,12 +571,16 @@ input {
 }
 
 
+/* =========================================================
+   PROFILE
+========================================================= */
 
 .profile-button {
   width: 42px;
   height: 42px;
 
   display: grid;
+
   place-items: center;
 
   border-left: 1px solid var(--border);
@@ -435,6 +593,7 @@ input {
   height: 31px;
 
   display: grid;
+
   place-items: center;
 
   border-radius: 50%;
@@ -446,8 +605,14 @@ input {
   font-size: 11px;
 
   font-weight: 700;
+
+  border: 1px solid var(--glass-border);
 }
 
+
+/* =========================================================
+   CONTENT
+========================================================= */
 
 .content-area {
   width: 100%;
@@ -468,6 +633,9 @@ input {
 }
 
 
+/* =========================================================
+   SEARCH AREA
+========================================================= */
 
 .search-area {
   display: flex;
@@ -513,6 +681,7 @@ input {
   position: absolute;
 
   left: 13px;
+
   top: 50%;
 
   transform: translateY(-50%);
@@ -529,15 +698,27 @@ input {
 
   padding: 0 14px 0 40px;
 
-  border-radius: 10px;
+  border-radius: 12px;
 
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border);
 
-  background: var(--surface);
+  background: var(--glass-bg);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 
   color: var(--text-primary);
 
   font-size: 12px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 4px 15px rgba(31, 56, 85, 0.06);
+
+  transition:
+    border 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .search-form input::placeholder {
@@ -545,7 +726,12 @@ input {
 }
 
 .search-form input:focus {
-  border-color: var(--primary);
+  border-color: rgba(124, 158, 219, 0.7);
+
+  background: var(--glass-bg-strong);
+
+  box-shadow:
+    0 0 0 3px rgba(124, 158, 219, 0.12);
 }
 
 .search-form button {
@@ -565,30 +751,50 @@ input {
 
   cursor: pointer;
 
-  transition: background 0.2s ease;
+  box-shadow:
+    0 6px 15px rgba(99, 132, 194, 0.22);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .search-form button:hover {
   background: var(--primary-dark);
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 18px rgba(99, 132, 194, 0.30);
 }
 
 
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
 
 .error-message {
   padding: 12px 15px;
 
   border-radius: 10px;
 
-  background: #fef2f2;
+  background: rgba(254, 242, 242, 0.75);
 
   color: #dc2626;
 
-  border: 1px solid #fecaca;
+  border: 1px solid rgba(254, 202, 202, 0.75);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
   font-size: 12px;
 }
 
 
+/* =========================================================
+   HOME GRID
+========================================================= */
 
 .home-grid {
   display: grid;
@@ -596,16 +802,16 @@ input {
   grid-template-columns:
     minmax(0, 1.65fr)
     minmax(300px, 0.95fr);
-      background:url("./assets/heroBG.png");
-    border-radius: var(--radius-large);
-     background-size: cover;
-  background-position: center;
+
   gap: 20px;
 
   width: 100%;
 }
 
 
+/* =========================================================
+   WEATHER CARD
+========================================================= */
 
 .weather-card {
   position: relative;
@@ -622,6 +828,8 @@ input {
     0 15px 40px rgba(37, 99, 235, 0.16);
 
   isolation: isolate;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .weather-card__background {
@@ -631,9 +839,23 @@ input {
 
   z-index: -2;
 
+  background-image: url("./assets/heroBG.png");
 
+  background-size: cover;
 
+  background-position: center;
+}
 
+.weather-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  background: var(--weather-overlay);
 }
 
 .weather-card::after {
@@ -762,6 +984,9 @@ input {
   opacity: 0.7;
 }
 
+
+/* Weather Statistics */
+
 .weather-card__bottom {
   display: grid;
 
@@ -781,9 +1006,25 @@ input {
 
   border-radius: 11px;
 
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.14);
 
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.20);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.weather-stat:hover {
+  background: rgba(255, 255, 255, 0.22);
+
+  transform: translateY(-2px);
 }
 
 .weather-stat span {
@@ -810,24 +1051,43 @@ input {
   opacity: 0.7;
 }
 
+.save-location-button{
+  background: var(--background);
+  width: 5rem;
+  color: var(--text-primary);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 12px;
+  color: #6384c2;
+  padding: 0.5rem;
+}
 
+/* =========================================================
+   LOADING WEATHER CARD
+========================================================= */
 
 .weather-card--loading,
 .forecast-panel--loading {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   flex-direction: column;
 
   gap: 12px;
 
-  background: var(--surface);
+  background: var(--glass-bg);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
   color: var(--text-secondary);
 
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border);
+
+  box-shadow: var(--glass-shadow);
 }
 
 .weather-card--loading {
@@ -856,6 +1116,9 @@ input {
 }
 
 
+/* =========================================================
+   MORE DETAILS CARD
+========================================================= */
 
 .more-details-card {
   min-height: 340px;
@@ -864,7 +1127,14 @@ input {
 
   border-radius: var(--radius-large);
 
-  box-shadow: var(--shadow);
+  background: var(--glass-bg);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid var(--glass-border);
+
+  box-shadow: var(--glass-shadow);
 }
 
 .more-details-card__header {
@@ -903,6 +1173,9 @@ input {
   color: var(--text-muted);
 }
 
+
+/* More Details Grid */
+
 .more-details-grid {
   display: grid;
 
@@ -925,9 +1198,25 @@ input {
 
   border-radius: 12px;
 
-   background-color: #a1cffdd2;
+  background: rgba(255, 255, 255, 0.22);
 
-  
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.more-detail-item:hover {
+  background: rgba(255, 255, 255, 0.35);
+
+  transform: translateY(-2px);
 }
 
 .more-detail-icon {
@@ -937,6 +1226,7 @@ input {
   flex-shrink: 0;
 
   display: grid;
+
   place-items: center;
 
   border-radius: 9px;
@@ -960,11 +1250,16 @@ input {
   display: block;
 
   font-size: 12px;
-  color: black;
+
+  color: var(--text-primary);
+
   font-weight: 650;
 }
 
 
+/* =========================================================
+   FORECAST SECTION
+========================================================= */
 
 .forecast-section {
   display: grid;
@@ -978,16 +1273,22 @@ input {
   width: 100%;
 }
 
+
+/* Forecast Panel */
+
 .forecast-panel {
   padding: 22px;
 
   border-radius: var(--radius-large);
 
-  background: var(--surface);
+  background: var(--glass-bg);
 
-  border: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
-  box-shadow: var(--shadow);
+  border: 1px solid var(--glass-border);
+
+  box-shadow: var(--glass-shadow);
 }
 
 .forecast-panel__header {
@@ -1007,6 +1308,9 @@ input {
 
   font-size: 11px;
 }
+
+
+/* Forecast Lists */
 
 .forecast-list,
 .hourly-list {
@@ -1029,17 +1333,23 @@ input {
 
   border-radius: 11px;
 
-  background: var(--surface-soft);
+  background: rgba(255, 255, 255, 0.18);
 
-  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.30);
 
   transition:
-    background 0.2s ease;
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .forecast-item:hover,
 .hourly-item:hover {
-  background: var(--surface-hover);
+  background: rgba(255, 255, 255, 0.32);
+
+  transform: translateY(-1px);
 }
 
 .forecast-item {
@@ -1106,6 +1416,9 @@ input {
 }
 
 
+/* =========================================================
+   GENERIC PAGE SECTIONS
+========================================================= */
 
 .page-section {
   display: flex;
@@ -1132,6 +1445,9 @@ input {
 }
 
 
+/* =========================================================
+   LOCATION CARD
+========================================================= */
 
 .location-card {
   display: grid;
@@ -1148,11 +1464,14 @@ input {
 
   border-radius: var(--radius-large);
 
-  background: var(--surface);
+  background: var(--glass-bg);
 
-  border: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
-  box-shadow: var(--shadow);
+  border: 1px solid var(--glass-border);
+
+  box-shadow: var(--glass-shadow);
 }
 
 .location-icon {
@@ -1160,6 +1479,7 @@ input {
   height: 54px;
 
   display: grid;
+
   place-items: center;
 
   border-radius: 15px;
@@ -1190,17 +1510,25 @@ input {
 }
 
 
+/* =========================================================
+   SETTINGS
+========================================================= */
+
 .settings-card {
   padding: 24px;
 
   border-radius: var(--radius-large);
 
-  background: var(--surface);
+  background: var(--glass-bg);
 
-  border: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
-  box-shadow: var(--shadow);
-    width: 20rem;
+  border: 1px solid var(--glass-border);
+
+  box-shadow: var(--glass-shadow);
+
+  width: 20rem;
 }
 
 .settings-row {
@@ -1229,6 +1557,10 @@ input {
   font-size: 11px;
 }
 
+
+/* =========================================================
+   UNIT SWITCH
+========================================================= */
 
 .unit-switch {
   display: flex;
@@ -1266,7 +1598,8 @@ input {
 
   cursor: pointer;
 
-  transition: background 0.2s ease;
+  transition:
+    background 0.2s ease;
 }
 
 .unit-switch input::after {
@@ -1284,7 +1617,8 @@ input {
 
   background: white;
 
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.2);
 
   transition:
     transform 0.2s ease;
@@ -1299,6 +1633,10 @@ input {
 }
 
 
+/* =========================================================
+   SIDEBAR OVERLAY
+========================================================= */
+
 .sidebar-overlay {
   display: none;
 
@@ -1310,10 +1648,14 @@ input {
 
   background: rgba(15, 23, 42, 0.35);
 
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 
+/* =========================================================
+   RESPONSIVE - 1100px
+========================================================= */
 
 @media (max-width: 1100px) {
   :root {
@@ -1322,11 +1664,13 @@ input {
 
   .content-area {
     padding-left: 25px;
+
     padding-right: 25px;
   }
 
   .topbar {
     padding-left: 25px;
+
     padding-right: 25px;
   }
 
@@ -1341,6 +1685,9 @@ input {
 }
 
 
+/* =========================================================
+   RESPONSIVE - 800px
+========================================================= */
 
 @media (max-width: 800px) {
   .side-nav {
@@ -1414,6 +1761,9 @@ input {
 }
 
 
+/* =========================================================
+   RESPONSIVE - 520px
+========================================================= */
 
 @media (max-width: 520px) {
   .topbar-right {
@@ -1430,6 +1780,7 @@ input {
 
   .content-area {
     padding-left: 14px;
+
     padding-right: 14px;
   }
 
@@ -1489,4 +1840,164 @@ input {
 
     align-items: flex-start;
   }
+}
+
+.toast-notification {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  z-index: 120;
+  max-width: 320px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #ffffff;
+  font-size: 13px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  animation: toast-appear 0.18s ease-out;
+}
+
+@keyframes toast-appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.saved-locations-card {
+  margin-top: 24px;
+  padding: 22px;
+  border-radius: var(--radius-large);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: var(--glass-shadow);
+}
+
+.saved-locations-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.saved-locations-header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.saved-locations-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.saved-locations-list li {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.saved-location-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.saved-location-delete-button {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--text-primary);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.saved-location-delete-button:hover {
+  background: rgba(255, 255, 255, 0.24);
+  transform: translateY(-1px);
+}
+
+.confirm-delete-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 16, 30, 0.72);
+}
+
+.confirm-delete-modal {
+  width: min(92%, 380px);
+  padding: 24px;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.28);
+}
+
+.confirm-delete-modal h3 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.confirm-delete-modal p {
+  margin: 0 0 20px;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.5;
+}
+
+.confirm-delete-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.confirm-delete-button {
+  min-width: 96px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.confirm-delete-button:hover {
+  transform: translateY(-1px);
+}
+
+.confirm-delete-button.confirm {
+  background: #dc2626;
+  color: #fff;
+  border: none;
+}
+
+.confirm-delete-button.cancel {
+  background: rgba(255, 255, 255, 0.12);
+  color: #e5e7eb;
+  border: 1px solid rgba(255, 255, 255, 0.16);
 }

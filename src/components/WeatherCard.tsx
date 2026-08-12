@@ -7,16 +7,18 @@ import {
 
 import { useEffect, useState } from "react";
 
-interface WeatherCardProps {
-  city?: string;
-  temperatureUnit?: TemperatureUnit;
-  fallbackCity?: string;
-}
+const fallbackCity = "Polokwane";
+
+type WeatherCardProps = {
+  city: string;
+  temperatureUnit: TemperatureUnit;
+  onSaveLocation?: () => void;
+};
 
 function WeatherCard({
-  city = "Polokwane",
-  temperatureUnit = "metric",
-  fallbackCity = "Polokwane",
+  city,
+  temperatureUnit,
+  onSaveLocation,
 }: WeatherCardProps) {
   const [weather, setWeather] =
     useState<WeatherData | null>(null);
@@ -64,7 +66,7 @@ function WeatherCard({
     return () => {
       cancelled = true;
     };
-  }, [city, fallbackCity]);
+  }, [city]);
 
   if (loading) {
     return (
@@ -119,7 +121,7 @@ function WeatherCard({
           <div>
 
             <span className="weather-card__label">
-              CURRENT WEATHER
+              Current Weather
             </span>
 
             <h2>
@@ -201,6 +203,14 @@ function WeatherCard({
           </div>
 
         </div>
+
+        <button
+          type="button"
+          className="save-location-button"
+          onClick={onSaveLocation}
+        >
+          Save Location
+        </button>
 
       </div>
     </article>
