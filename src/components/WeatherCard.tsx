@@ -209,7 +209,7 @@ function WeatherCard({
           className="save-location-button"
           onClick={onSaveLocation}
         >
-          Save Location
+          + Location
         </button>
 
       </div>

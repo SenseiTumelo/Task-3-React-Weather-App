@@ -5,7 +5,6 @@ import ForecastSection from "./components/ForecastSection";
 import MoreDetailsCard from "./components/MoreDetailsCard";
 
 import settingIcon from "./assets/sidebarIcons/setting.png";
-import humidityIcon from "./assets/humidity.png";
 import homeIcon from "./assets/home.png";
 import forecastIcon from "./assets/forecast.png";
 import locationIcon from "./assets/location.png";
@@ -410,7 +409,7 @@ function App() {
     },
     {
       key: "location",
-      label: "Location",
+      label: "Saved Locations",
       icon: locationIcon,
     },
     {
@@ -695,7 +694,7 @@ function App() {
                 </p>
 
                 <h2>
-                  Current Location
+                  Your Current Location
                 </h2>
 
                 <p>
@@ -705,7 +704,10 @@ function App() {
 
               <div className="location-card">
                 <div className="location-icon">
-                  ⌖
+                  <img
+                    src={locationIcon}
+                    alt="Location"
+                  />
                 </div>
 
                 <div className="location-information">
@@ -777,7 +779,7 @@ function App() {
                   role="dialog"
                   aria-modal="true"
                 >
-                  <div className="confirm-delete-modal">
+                  <div className="confirm-delete-modal" style={{backgroundColor: '#d0e3ffe5'}}>
                     <h3>Confirm delete</h3>
                     <p>
                       Remove "{deleteCandidate}" from saved locations?

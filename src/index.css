@@ -1175,6 +1175,10 @@ input {
   width: 1rem;
 }
 
+
+.location-icon img{
+  width: 1.5rem;
+}
 /* More Details Grid */
 
 .more-details-grid {
