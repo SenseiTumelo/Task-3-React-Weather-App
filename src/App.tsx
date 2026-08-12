@@ -4,7 +4,11 @@ import WeatherCard from "./components/WeatherCard";
 import ForecastSection from "./components/ForecastSection";
 import MoreDetailsCard from "./components/MoreDetailsCard";
 
-
+import settingIcon from "./assets/sidebarIcons/setting.png";
+import humidityIcon from "./assets/humidity.png";
+import homeIcon from "./assets/home.png";
+import forecastIcon from "./assets/forecast.png";
+import locationIcon from "./assets/location.png";
 import {
   getForecastByCity,
   getForecastByCoordinates,
@@ -397,22 +401,22 @@ function App() {
     {
       key: "home",
       label: "Home",
-      icon: "⌂",
+      icon: homeIcon,
     },
     {
       key: "forecast",
       label: "Forecast",
-      icon: "☁",
+      icon: forecastIcon,
     },
     {
       key: "location",
       label: "Location",
-      icon: "⌖",
+      icon: locationIcon,
     },
     {
       key: "settings",
       label: "Settings",
-      icon: "⚙",
+      icon: settingIcon,
     },
   ];
 
@@ -466,7 +470,10 @@ function App() {
                   }
                 >
                   <span className="navigator__icon">
-                    {item.icon}
+                    <img
+                      src={item.icon}
+                      alt={`${item.label} icon`}
+                    />
                   </span>
 
                   <span>

@@ -779,9 +779,9 @@ input {
 
   border-radius: 10px;
 
-  background: rgba(254, 242, 242, 0.75);
+  background: rgba(230, 221, 221, 0.75);
 
-  color: #dc2626;
+  color: #b14141;
 
   border: 1px solid rgba(254, 202, 202, 0.75);
 
@@ -1054,7 +1054,6 @@ input {
 .save-location-button{
   background: var(--background);
   width: 5rem;
-  color: var(--text-primary);
   border-radius: 0.5rem;
   font-weight: 600;
   font-size: 12px;
@@ -1172,7 +1171,9 @@ input {
 
   color: var(--text-muted);
 }
-
+.more-detail-icon img{
+  width: 1rem;
+}
 
 /* More Details Grid */
 
@@ -1444,6 +1445,9 @@ input {
   font-size: 12px;
 }
 
+.navigator__icon img{
+  width: 1rem;
+}
 
 /* =========================================================
    LOCATION CARD

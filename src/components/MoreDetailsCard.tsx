@@ -4,6 +4,11 @@ import {
   type WeatherData,
 } from "../services/weatherService";
 
+import humidityIcon from "../assets/humidity.png";
+import sunriseIcon from "../assets/sunrise.png";
+import sunIcon from "../assets/sun.png";
+import visibilityIcon from "../assets/visibility.png";
+import feelsLikeIcon from "../assets/feels_like.png";
 interface MoreDetailsCardProps {
   weather: WeatherData | null;
   temperatureUnit: TemperatureUnit;
@@ -31,27 +36,27 @@ function MoreDetailsCard({
     {
       label: "Feels Like",
       value: `${feelsLike}${tempUnitLabel}`,
-      icon: "🌡",
+      icon: feelsLikeIcon,
     },
     {
       label: "Humidity",
       value: `${weather.humidity}%`,
-      icon: "💧",
+      icon: humidityIcon,
     },
     {
       label: "Sunrise",
       value: weather.sunrise,
-      icon: "☀",
+      icon: sunriseIcon,
     },
     {
       label: "Sunset",
       value: weather.sunset,
-      icon: "◐",
+      icon: sunIcon,
     },
     {
       label: "Visibility",
       value: weather.visibility,
-      icon: "◉",
+      icon: visibilityIcon,
     },
   ];
 
@@ -85,7 +90,7 @@ function MoreDetailsCard({
           >
 
             <div className="more-detail-icon">
-              {detail.icon}
+             <img src={detail.icon} alt={detail.label} />
             </div>
 
             <div>
