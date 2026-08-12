@@ -35,7 +35,7 @@ const WEATHER_BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 const FORECAST_BASE_URL = 'https://api.openweathermap.org/data/2.5/forecast';
 
 const getApiKey = (): string | undefined =>
-  (import.meta.env.VITE_OPENWEATHER_API_KEY as string | undefined) ||
+  (import.meta.env.VITE_API_KEY as string | undefined) ||
   (import.meta.env.VITE_API_KEY as string | undefined);
 
 const formatTime = (timestamp?: number): string => {
@@ -103,7 +103,7 @@ export const convertTemperature = (value: number, unit: TemperatureUnit): number
   unit === 'metric' ? value : Math.round((value * 9) / 5 + 32);
 
 export const getWeatherByCity = async (city: string): Promise<WeatherData> => {
-  const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+  const apiKey = getApiKey();
 
   if (!apiKey) {
     throw new Error('API key is missing.');
@@ -122,7 +122,7 @@ export const getWeatherByCity = async (city: string): Promise<WeatherData> => {
 };
 
 export const getWeatherByCoordinates = async (lat: number, lon: number): Promise<WeatherData> => {
-  const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+  const apiKey = getApiKey();
 
   if (!apiKey) {
     throw new Error('OpenWeather API key is missing.');
