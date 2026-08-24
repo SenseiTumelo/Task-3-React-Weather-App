@@ -427,7 +427,7 @@ git clone <your-repository-url>
 Navigate into the project directory:
 
 ```bash
-cd <project-folder>
+cd "Task 3 React Weather App"
 ```
 
 ### Install Dependencies
