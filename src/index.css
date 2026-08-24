@@ -11,7 +11,7 @@
   background: #eaf2fb;
 
   /* Backgrounds */
-  --background: #eaf2fb;
+  --background: url("./assets/background.jpg") no-repeat center center fixed;
   --surface: rgba(255, 255, 255, 0.38);
   --surface-soft: rgba(255, 255, 255, 0.28);
   --surface-hover: rgba(255, 255, 255, 0.48);
@@ -66,7 +66,7 @@
 
 html.dark-theme,
 body.dark-theme {
-  --background: #07111f;
+  --background: linear-gradient(90deg,rgba(10, 61, 97, 1) 0%, rgba(28, 39, 69, 1) 51%, rgba(35, 77, 112, 1) 100%);;
 
   --surface: rgba(17, 24, 39, 0.45);
   --surface-soft: rgba(30, 41, 59, 0.38);
@@ -1320,10 +1320,8 @@ input {
 .forecast-list,
 .hourly-list {
   display: flex;
-
-  flex-direction: column;
-
   gap: 8px;
+  overflow-x: scroll;
 }
 
 .forecast-item,
